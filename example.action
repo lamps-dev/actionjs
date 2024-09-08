@@ -1,4 +1,14 @@
 <!-- example.action -->
 <action>
-    <h1>Hello, ActionJS!</h1>
+    <state>
+        { count: 0 }
+    </state>
+    <bind>
+        (state) => {
+            return createElement('div', {}, 
+                createElement('h1', {}, `Count: ${state.count}`),
+                createElement('button', { onclick: () => this.setState({ count: state.count + 1 }) }, 'Increment')
+            );
+        }
+    </bind>
 </action>
