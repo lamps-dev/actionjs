@@ -1,5 +1,7 @@
-// runtime.js
-const { createElement, render } = require('./vdom');
+const { JSDOM } = require('jsdom');
+
+const dom = new JSDOM(`<!DOCTYPE html><body></body>`);
+const document = dom.window.document;
 
 class ActionComponent {
     constructor() {
@@ -42,5 +44,6 @@ function createComponent() {
 
 module.exports = {
     createComponent,
-    ActionComponent
+    ActionComponent,
+    document // Export document for use in main.js
 };
