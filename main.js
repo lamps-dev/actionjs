@@ -1,5 +1,4 @@
-// main.js
-const { createComponent } = require('./runtime');
+const { createComponent, document } = require('./runtime');
 const fs = require('fs');
 const path = require('path');
 const { execSync } = require('child_process');
@@ -14,3 +13,6 @@ const componentCode = fs.readFileSync('example.js', 'utf-8');
 const component = createComponent();
 component.setContent(componentCode);
 component.mount(document.body);
+
+// Output the resulting HTML for verification
+console.log(document.body.innerHTML);
