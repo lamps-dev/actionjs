@@ -12,7 +12,11 @@ function transform(input) {
     // Simple transformation example
     return input
         .replace(/<action>/g, 'document.createElement("div")')
-        .replace(/<\/action>/g, '');
+        .replace(/<\/action>/g, '')
+        .replace(/<state>/g, 'this.state = ')
+        .replace(/<\/state>/g, ';')
+        .replace(/<bind>/g, 'this.bind(')
+        .replace(/<\/bind>/g, ');');
 }
 
 const inputFile = process.argv[2];
